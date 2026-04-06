@@ -86,6 +86,312 @@
     color: var(--muted);
   }
 </style>
+<style>
+  /* ── Reset & base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Cookie banner overlay ── */
+  #ss-cookie-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 9000;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  #ss-cookie-overlay.visible {
+    display: flex;
+  }
+
+  /* ── Main banner ── */
+  #ss-cookie-banner {
+    background: #111118;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    padding: 28px 32px 24px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 -4px 40px rgba(0,0,0,0.6);
+    animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* ── Header ── */
+  .ss-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .ss-logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #7c6af5 0%, #c26af5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ss-logo-mark svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .ss-banner-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #f0ecff;
+    letter-spacing: -0.01em;
+  }
+
+  .ss-banner-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+
+  /* ── Body text ── */
+  .ss-banner-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.58);
+    margin-bottom: 20px;
+  }
+
+  .ss-banner-body a {
+    color: #9d8af7;
+    text-decoration: none;
+  }
+
+  .ss-banner-body a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── Settings panel ── */
+  #ss-settings-panel {
+    display: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 18px;
+    margin-bottom: 20px;
+  }
+
+  #ss-settings-panel.open {
+    display: block;
+  }
+
+  .ss-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .ss-setting-row:last-child {
+    border-bottom: none;
+  }
+
+  .ss-setting-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e8e4f0;
+    margin-bottom: 2px;
+  }
+
+  .ss-setting-info p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    max-width: 420px;
+    line-height: 1.5;
+  }
+
+  /* Toggle switch */
+  .ss-toggle {
+    position: relative;
+    width: 44px;
+    height: 26px;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .ss-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .ss-toggle-track {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    border-radius: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .ss-toggle-track::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ss-toggle input:checked + .ss-toggle-track {
+    background: #7c6af5;
+  }
+
+  .ss-toggle input:checked + .ss-toggle-track::after {
+    transform: translateX(18px);
+  }
+
+  .ss-toggle input:disabled + .ss-toggle-track {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Required badge */
+  .ss-badge-required {
+    font-size: 11px;
+    font-weight: 500;
+    color: #7c6af5;
+    background: rgba(124,106,245,0.12);
+    border: 1px solid rgba(124,106,245,0.25);
+    border-radius: 6px;
+    padding: 2px 8px;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  /* ── Action buttons ── */
+  .ss-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ss-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 11px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s, transform 0.1s;
+    letter-spacing: -0.01em;
+  }
+
+  .ss-btn:active {
+    transform: scale(0.97);
+  }
+
+  .ss-btn-accept {
+    background: linear-gradient(135deg, #7c6af5 0%, #a86af5 100%);
+    color: #fff;
+    order: 3;
+  }
+
+  .ss-btn-accept:hover {
+    opacity: 0.92;
+  }
+
+  .ss-btn-reject {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.10);
+    order: 1;
+  }
+
+  .ss-btn-reject:hover {
+    background: rgba(255,255,255,0.11);
+  }
+
+  .ss-btn-settings {
+    background: transparent;
+    color: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.08);
+    order: 2;
+  }
+
+  .ss-btn-settings:hover {
+    color: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.04);
+  }
+
+  /* ── Floating cookie button (after consent) ── */
+  #ss-cookie-fab {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #1c1a2e;
+    border: 1px solid rgba(255,255,255,0.10);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 8000;
+    transition: transform 0.2s, background 0.2s;
+    font-size: 22px;
+  }
+
+  #ss-cookie-fab:hover {
+    background: #242240;
+    transform: scale(1.05);
+  }
+
+  #ss-cookie-fab.visible {
+    display: flex;
+  }
+
+  /* ── Confirmation toast ── */
+  #ss-toast {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    left: 24px;
+    background: #1c1a2e;
+    border: 1px solid rgba(124,106,245,0.3);
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    z-index: 9100;
+    animation: fadeInUp 0.25s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 520px) {
+    #ss-cookie-banner { padding: 22px 20px 20px; border-radius: 16px 16px 0 0; }
+    #ss-cookie-overlay { padding: 0; align-items: flex-end; }
+    .ss-btn { font-size: 13px; padding: 10px 14px; }
+  }
+</style>
 </head>
 <body>
 <header>
@@ -171,5 +477,203 @@
   Email: legal@sixsevenmeet.com<br>
   Address: Malta</p>
 </div>
+
+<!-- ── Cookie overlay ── -->
+<div id="ss-cookie-overlay" role="dialog" aria-modal="true" aria-label="Cookieinställningar">
+  <div id="ss-cookie-banner">
+
+    <div class="ss-banner-header">
+      <div class="ss-logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5"/>
+          <path d="M8 12h8M12 8v8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="ss-banner-title">Vi använder cookies</div>
+        <div class="ss-banner-subtitle">sixsevenmeet.com</div>
+      </div>
+    </div>
+
+    <p class="ss-banner-body">
+      Vi och våra partners använder cookies för att förbättra din upplevelse, analysera trafik och visa relevanta annonser.
+      Du väljer själv vad du godkänner. Läs mer i vår
+      <a href="https://sixsevenmeet.com/privacy_policy.html" target="_blank" rel="noopener">integritetspolicy</a>.
+    </p>
+
+    <!-- Settings panel -->
+    <div id="ss-settings-panel">
+
+      <div class="ss-setting-row">
+        <div class="ss-setting-info">
+          <h4>Nödvändiga cookies</h4>
+          <p>Krävs för att webbplatsen ska fungera korrekt. Kan inte stängas av.</p>
+        </div>
+        <span class="ss-badge-required">Alltid aktiva</span>
+      </div>
+
+      <div class="ss-setting-row">
+        <div class="ss-setting-info">
+          <h4>Analys &amp; prestanda</h4>
+          <p>Hjälper oss förstå hur besökare använder webbplatsen (t.ex. Firebase Analytics).</p>
+        </div>
+        <label class="ss-toggle">
+          <input type="checkbox" id="toggle-analytics" checked>
+          <span class="ss-toggle-track"></span>
+        </label>
+      </div>
+
+      <div class="ss-setting-row">
+        <div class="ss-setting-info">
+          <h4>Marknadsföring</h4>
+          <p>Används för att visa riktad annonsering och mäta kampanjresultat.</p>
+        </div>
+        <label class="ss-toggle">
+          <input type="checkbox" id="toggle-marketing">
+          <span class="ss-toggle-track"></span>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="ss-actions">
+      <button class="ss-btn ss-btn-reject" id="ss-btn-reject" onclick="handleConsent('reject')">
+        Avvisa alla
+      </button>
+      <button class="ss-btn ss-btn-settings" id="ss-btn-settings" onclick="toggleSettings()">
+        Inställningar
+      </button>
+      <button class="ss-btn ss-btn-accept" id="ss-btn-accept" onclick="handleConsent('accept')">
+        Acceptera alla
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Floating button (after consent) ── -->
+<div id="ss-cookie-fab" onclick="reopenBanner()" title="Cookieinställningar" role="button" tabindex="0" aria-label="Öppna cookieinställningar">
+  🍪
+</div>
+
+<!-- ── Toast ── -->
+<div id="ss-toast"></div>
+
+<script>
+  var CONSENT_KEY = 'ss_cookie_consent';
+  var settingsOpen = false;
+
+  function init() {
+    var stored = getConsent();
+    if (!stored) {
+      document.getElementById('ss-cookie-overlay').classList.add('visible');
+    } else {
+      showFab();
+    }
+  }
+
+  function toggleSettings() {
+    settingsOpen = !settingsOpen;
+    var panel = document.getElementById('ss-settings-panel');
+    var btn   = document.getElementById('ss-btn-settings');
+    panel.classList.toggle('open', settingsOpen);
+    btn.textContent = settingsOpen ? 'Stäng' : 'Inställningar';
+    if (settingsOpen) {
+      document.getElementById('ss-btn-accept').textContent = 'Spara val';
+    } else {
+      document.getElementById('ss-btn-accept').textContent = 'Acceptera alla';
+    }
+  }
+
+  function handleConsent(type) {
+    var prefs;
+    if (type === 'accept') {
+      prefs = { necessary: true, analytics: true, marketing: true };
+    } else if (type === 'reject') {
+      prefs = { necessary: true, analytics: false, marketing: false };
+    } else {
+      prefs = {
+        necessary: true,
+        analytics: document.getElementById('toggle-analytics').checked,
+        marketing: document.getElementById('toggle-marketing').checked
+      };
+    }
+    saveConsent(prefs);
+    applyConsent(prefs);
+    closeOverlay();
+    showFab();
+    showToast(type === 'reject' ? 'Endast nödvändiga cookies aktiverade' : 'Dina cookieinställningar har sparats');
+  }
+
+  function closeOverlay() {
+    document.getElementById('ss-cookie-overlay').classList.remove('visible');
+  }
+
+  function reopenBanner() {
+    var stored = getConsent();
+    if (stored) {
+      document.getElementById('toggle-analytics').checked = stored.analytics;
+      document.getElementById('toggle-marketing').checked = stored.marketing;
+    }
+    if (!settingsOpen) toggleSettings();
+    document.getElementById('ss-cookie-overlay').classList.add('visible');
+    document.getElementById('ss-cookie-fab').classList.remove('visible');
+  }
+
+  function showFab() {
+    document.getElementById('ss-cookie-fab').classList.add('visible');
+  }
+
+  function showToast(msg) {
+    var t = document.getElementById('ss-toast');
+    t.textContent = '✓ ' + msg;
+    t.style.display = 'block';
+    setTimeout(function() { t.style.display = 'none'; }, 3500);
+  }
+
+  /* ── Consent storage (localStorage + cookie fallback) ── */
+  function saveConsent(prefs) {
+    var data = JSON.stringify({ prefs: prefs, ts: Date.now() });
+    try { localStorage.setItem(CONSENT_KEY, data); } catch(e) {}
+    document.cookie = CONSENT_KEY + '=' + encodeURIComponent(data) + '; path=/; max-age=' + (365*24*60*60) + '; SameSite=Lax';
+  }
+
+  function getConsent() {
+    try {
+      var raw = localStorage.getItem(CONSENT_KEY);
+      if (raw) return JSON.parse(raw).prefs;
+    } catch(e) {}
+    var match = document.cookie.match(new RegExp('(?:^|; )' + CONSENT_KEY + '=([^;]*)'));
+    if (match) {
+      try { return JSON.parse(decodeURIComponent(match[1])).prefs; } catch(e) {}
+    }
+    return null;
+  }
+
+  /* ── Apply consent (hook your analytics/ad scripts here) ── */
+  function applyConsent(prefs) {
+    window.dispatchEvent(new CustomEvent('ss:consent', { detail: prefs }));
+  }
+
+  /* ── Save-via-settings shortcut ── */
+  document.getElementById('ss-btn-accept').addEventListener('click', function() {
+    if (settingsOpen) {
+      handleConsent('custom');
+    } else {
+      handleConsent('accept');
+    }
+  });
+
+  /* ── Keyboard: close on Escape ── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('ss-cookie-overlay').classList.contains('visible')) {
+      handleConsent('reject');
+    }
+  });
+
+  /* ── Boot ── */
+  init();
+</script>
 </body>
 </html>
