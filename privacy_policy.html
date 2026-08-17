@@ -66,6 +66,8 @@
   p { margin-bottom: 1rem; color: #C8C8D8; }
   ul { margin: 0.5rem 0 1rem 1.5rem; color: #C8C8D8; }
   ul li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); }
+  strong { color: var(--text); }
 </style>
 </head>
 <body>
@@ -73,82 +75,97 @@
   <div class="logo">SixSeven</div>
 </header>
 <div class="container">
-<h1>Privacy Policy</h1>
-  <p class="meta">Last updated: April 2, 2026 &nbsp;·&nbsp; Effective: April 6, 2026</p>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: August 17, 2026 &nbsp;·&nbsp; Effective: August 17, 2026</p>
 
   <h2>1. Who we are</h2>
-  <p>SixSeven is operated by SixSeven Ltd, a company registered in Malta.</p>
-  <p>We operate the SixSeven mobile application ("the App"), which provides dating, friendship, and coaching services. You can contact us at privacy@sixsevenmeet.com.</p>
+  <p>SixSeven is a mobile application providing dating and friendship services. SixSeven is operated from Malta.</p>
+  <p>For privacy-related questions or requests, you can contact us at <a href="mailto:privacy@sixsevenmeet.com">privacy@sixsevenmeet.com</a>.</p>
 
   <h2>2. What data we collect</h2>
-  <p>We collect the following categories of personal data:</p>
+  <p>Depending on how you use SixSeven, we may collect and process the following categories of personal data:</p>
   <ul>
-    <li><strong>Account data:</strong> name, email address, date of birth, gender, city, country</li>
-    <li><strong>Profile data:</strong> biography, profile photos, interests</li>
-    <li><strong>Identity verification data:</strong> government-issued ID documents (processed by Stripe Identity)</li>
-    <li><strong>Payment data:</strong> billing information, transaction history (processed by Stripe — we do not store card details)</li>
-    <li><strong>Usage data:</strong> swipe activity, matches, messages, coaching session records</li>
-    <li><strong>Device data:</strong> device type, operating system, push notification token</li>
+    <li><strong>Account data:</strong> name, email address, date of birth or age, gender, city, country, and information used to authenticate your account.</li>
+    <li><strong>Profile data:</strong> biography, profile photos, interests, preferences, and other information you choose to include in your profile.</li>
+    <li><strong>Activity and interaction data:</strong> profile decisions such as Yes, No, and Maybe Later, matches, messages, and other interactions with features of the App.</li>
+    <li><strong>Identity verification data:</strong> if you voluntarily choose to verify your identity, information required for the verification is processed through Stripe Identity.</li>
+    <li><strong>Device and technical data:</strong> device type, operating system, push notification token, and technical information necessary to operate, secure, and troubleshoot the App.</li>
   </ul>
 
-  <h2>3. Why we collect your data</h2>
-  <p>We process your personal data on the following legal bases under GDPR Article 6:</p>
+  <h2>3. Why we collect and use your data</h2>
+  <p>We use personal data to operate and provide SixSeven, including to:</p>
   <ul>
-    <li><strong>Contract performance:</strong> to provide you with the App's core services — matching, chat, and coaching</li>
-    <li><strong>Legal obligation:</strong> age verification (18+), identity verification, fraud prevention</li>
-    <li><strong>Legitimate interest:</strong> improving the App, preventing abuse, ensuring platform safety</li>
-    <li><strong>Consent:</strong> push notifications, optional features</li>
+    <li>Create and manage your account</li>
+    <li>Display your profile to other users</li>
+    <li>Provide dating and friendship matching features</li>
+    <li>Process profile decisions and matches</li>
+    <li>Enable messaging between matched users</li>
+    <li>Send push notifications when enabled</li>
+    <li>Provide optional identity verification</li>
+    <li>Maintain the safety and security of the App</li>
+    <li>Prevent, investigate, and respond to abuse, fraud, or misuse</li>
+    <li>Respond to support and privacy requests</li>
+    <li>Improve the reliability and functionality of SixSeven</li>
   </ul>
+  <p>Where required by applicable law, we rely on an appropriate legal basis for processing personal data. This may include performance of a contract, legitimate interests, compliance with legal obligations, or consent.</p>
 
   <h2>4. Who we share your data with</h2>
-  <p>We share your data only with the following trusted third parties:</p>
+  <p>We use third-party service providers to operate SixSeven.</p>
   <ul>
-    <li><strong>Firebase (Google):</strong> database, authentication, file storage, and push notifications</li>
-    <li><strong>Stripe:</strong> payment processing and identity verification</li>
-    <li><strong>Twilio:</strong> voice calls between users and coaches</li>
+    <li><strong>Firebase (Google):</strong> used for services including authentication, database functionality, file storage, cloud functionality, and push notifications.</li>
+    <li><strong>Stripe Identity:</strong> used to provide optional identity verification.</li>
   </ul>
-  <p>We do not sell your personal data to third parties. We do not use your data for advertising purposes.</p>
+  <p>We may also disclose information where required by law, to protect users or the security of SixSeven, or in connection with legal claims.</p>
+  <p>We do not sell your personal data to third parties. We do not use your personal data for third-party advertising.</p>
 
-  <h2>5. Identity verification</h2>
-  <p>To use certain features of the App, you must verify your identity and confirm you are 18 or older. This is done through Stripe Identity, which processes your government-issued ID document and a selfie. Stripe's privacy policy applies to this processing. We receive only a verified/not-verified status — we do not store copies of your ID documents.</p>
+  <h2>5. Optional identity verification</h2>
+  <p>Identity verification in SixSeven is voluntary.</p>
+  <p>If you choose to verify your identity, the verification is provided through Stripe Identity. Stripe may collect and process information such as a government-issued identity document, photographs, and other information needed to complete the verification.</p>
+  <p>Users who successfully complete identity verification may receive a verification indicator or badge within the App.</p>
+  <p>SixSeven does not intentionally store copies of your government-issued identity documents in its own Firebase database. We aim to minimize the identity-verification information stored directly by SixSeven.</p>
+  <p>You can use SixSeven without completing optional identity verification unless access must be restricted in a particular situation for legal, safety, or security reasons.</p>
 
   <h2>6. Data retention</h2>
-  <ul>
-    <li>Active account data: retained for as long as your account is active</li>
-    <li>Deleted account data: removed within 30 days of account deletion</li>
-    <li>Payment records: retained for 7 years as required by EU law</li>
-    <li>Messages: deleted when both parties delete the match</li>
-  </ul>
+  <p>We retain personal data only for as long as reasonably necessary for the purposes described in this Privacy Policy, including providing the App, maintaining security, resolving disputes, and complying with applicable legal obligations.</p>
+  <p>When you delete your account, we will delete or anonymize personal data associated with your account within a reasonable period, except where information must be retained for legitimate security, fraud-prevention, or legal purposes.</p>
+  <p>Some information may remain temporarily in backups before being automatically removed.</p>
 
   <h2>7. Your rights under GDPR</h2>
-  <p>If you are located in the European Economic Area, you have the following rights:</p>
+  <p>If you are located in the European Economic Area, you may have rights under applicable data protection law, including:</p>
   <ul>
-    <li><strong>Access:</strong> request a copy of your personal data</li>
-    <li><strong>Rectification:</strong> correct inaccurate data</li>
-    <li><strong>Erasure:</strong> request deletion of your account and data</li>
-    <li><strong>Portability:</strong> receive your data in a machine-readable format</li>
-    <li><strong>Objection:</strong> object to processing based on legitimate interest</li>
-    <li><strong>Withdraw consent:</strong> at any time for consent-based processing</li>
+    <li><strong>Access:</strong> request information about the personal data we hold about you</li>
+    <li><strong>Rectification:</strong> request correction of inaccurate personal data</li>
+    <li><strong>Erasure:</strong> request deletion of your personal data where applicable</li>
+    <li><strong>Restriction:</strong> request restriction of certain processing</li>
+    <li><strong>Portability:</strong> request your data in a portable format where applicable</li>
+    <li><strong>Objection:</strong> object to certain processing</li>
+    <li><strong>Withdraw consent:</strong> withdraw consent where processing is based on consent</li>
   </ul>
-  <p>To exercise your rights, contact us at privacy@sixsevenmeet.com. We will respond within 30 days.</p>
-  <p>You also have the right to lodge a complaint with the Malta Information and Data Protection Commissioner (IDPC) at <a href="https://idpc.org.mt" style="color: var(--accent);">idpc.org.mt</a>.</p>
+  <p>To exercise your privacy rights, contact us at <a href="mailto:privacy@sixsevenmeet.com">privacy@sixsevenmeet.com</a>.</p>
+  <p>You may also have the right to lodge a complaint with your local data protection authority. In Malta, the supervisory authority is the Office of the Information and Data Protection Commissioner (IDPC) at <a href="https://idpc.org.mt">idpc.org.mt</a>.</p>
 
-  <h2>8. International transfers</h2>
-  <p>Your data may be processed in the United States by our service providers (Firebase, Stripe, Twilio). These transfers are covered by Standard Contractual Clauses approved by the European Commission.</p>
+  <h2>8. International data transfers</h2>
+  <p>Some of our service providers may process information outside Malta or the European Economic Area.</p>
+  <p>Where required, appropriate safeguards are used for international transfers of personal data in accordance with applicable data protection law.</p>
 
   <h2>9. Security</h2>
-  <p>We protect your data using industry-standard security measures including encryption in transit (TLS), Firebase Security Rules, and access controls. No system is completely secure — if you believe your account has been compromised, contact us immediately.</p>
+  <p>We use technical and organizational measures designed to protect personal data, including encrypted connections, access controls, and Firebase security mechanisms.</p>
+  <p>However, no online service can guarantee absolute security. If you believe your account or personal information has been compromised, please contact us at <a href="mailto:privacy@sixsevenmeet.com">privacy@sixsevenmeet.com</a>.</p>
 
-  <h2>10. Children</h2>
-  <p>SixSeven is strictly for users aged 18 and over. We do not knowingly collect data from anyone under 18. If we become aware that a minor has created an account, we will delete the account and all associated data immediately.</p>
+  <h2>10. Age requirement</h2>
+  <p>SixSeven is intended only for adults aged 18 or older.</p>
+  <p>We do not knowingly permit people under 18 to use the App. If we become aware that an account belongs to someone under 18, we may remove the account and associated information.</p>
 
-    <h2>11. Changes to this policy</h2>
-  <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via the App or by email. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+  <h2>11. Changes to this policy</h2>
+  <p>We may update this Privacy Policy from time to time when SixSeven, our service providers, or applicable legal requirements change.</p>
+  <p>When appropriate, we will notify users of material changes through the App or another suitable method.</p>
+  <p>The latest version of this Privacy Policy will be made available on our website.</p>
 
   <h2>12. Contact</h2>
-  <p>For privacy-related questions or requests:<br>
-  Email: privacy@sixsevenmeet.com<br>
-  Address: Malta</p>
+  <p>For privacy-related questions, requests, or concerns:<br>
+  <strong>SixSeven</strong><br>
+  Malta<br>
+  Email: <a href="mailto:privacy@sixsevenmeet.com">privacy@sixsevenmeet.com</a></p>
 </div>
 </body>
 </html>
