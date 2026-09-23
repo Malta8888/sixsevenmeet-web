@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SixSeven — Dating &amp; Friendship</title>
-<meta name="description" content="SixSeven is a mobile app for meeting people for dating and friendship. Coming soon on iOS and Android.">
+<title>Community Guidelines — SixSeven</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
   :root {
     --bg: #0A0A0F;
     --surface: #13131A;
@@ -16,237 +15,87 @@
     --text: #F0F0F5;
     --muted: #7A7A9A;
   }
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    height: 100%;
-  }
-
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
-
-  /* ── Background glow ── */
-  body::before {
-    content: '';
-    position: fixed;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;
-    height: 600px;
-    background: radial-gradient(ellipse at center, rgba(232,71,106,0.12) 0%, rgba(240,165,0,0.06) 40%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ── Header ── */
   header {
-    position: relative;
-    z-index: 1;
     border-bottom: 1px solid var(--border);
-    padding: 1.75rem 2rem;
+    padding: 2rem 0;
     text-align: center;
   }
-
   .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
-    font-weight: 600;
+    font-size: 2rem;
     background: linear-gradient(90deg, #E8476A, #F0A500);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: -0.01em;
   }
-
-  /* ── Main / Hero ── */
-  main {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5rem 2rem 4rem;
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
   }
-
-  .eyebrow {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 6px 18px;
-    margin-bottom: 2.5rem;
-  }
-
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-size: 2.2rem;
     font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
     color: var(--text);
-    max-width: 640px;
-    margin-bottom: 1.75rem;
   }
-
-  h1 em {
-    font-style: italic;
-    background: linear-gradient(90deg, #E8476A, #F0A500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #A0A0B8;
-    max-width: 480px;
-    line-height: 1.75;
+  .meta {
+    color: var(--muted);
+    font-size: 14px;
     margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
   }
-
-  .coming-soon {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 2.5rem 0 1rem;
+  }
+  p { margin-bottom: 1rem; color: #C8C8D8; }
+  ul { margin: 0.5rem 0 1rem 1.5rem; color: #C8C8D8; }
+  ul li { margin-bottom: 0.4rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .intro {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 14px 24px;
+    border-left: 3px solid var(--accent2);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 0 0 2.5rem;
+    color: #C8C8D8;
     font-size: 15px;
-    font-weight: 400;
-    color: var(--muted);
-  }
-
-  .coming-soon-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #E8476A, #F0A500);
-    flex-shrink: 0;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
-  }
-
-  .coming-soon strong {
-    color: var(--text);
-    font-weight: 500;
-  }
-
-  /* ── Divider ── */
-  .divider {
-    width: 48px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 4rem auto 0;
-  }
-
-  /* ── Footer ── */
-  footer {
-    position: relative;
-    z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-  }
-
-  .footer-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.25rem 0;
-  }
-
-  .footer-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 400;
-    padding: 4px 14px;
-    border-radius: 6px;
-    transition: color 0.15s;
-  }
-
-  .footer-links a:hover {
-    color: var(--text);
-  }
-
-  .footer-sep {
-    color: var(--border);
-    font-size: 13px;
-    user-select: none;
-  }
-
-  .footer-copy {
-    margin-top: 1rem;
-    font-size: 12px;
-    color: #3A3A52;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    main { padding: 3.5rem 1.5rem 3rem; }
-    h1 { font-size: 2.2rem; }
-    .description { font-size: 1rem; }
+    line-height: 1.75;
   }
 </style>
 <style>
-  /* ── Cookie banner overlay ── */
   #ss-cookie-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 9000;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    align-items: flex-end;
-    justify-content: center;
-    padding: 1.5rem;
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    z-index: 9000; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+    align-items: flex-end; justify-content: center; padding: 1.5rem;
   }
   #ss-cookie-overlay.visible { display: flex; }
   #ss-cookie-banner {
-    background: #111118;
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 20px;
-    padding: 28px 32px 24px;
-    max-width: 700px;
-    width: 100%;
+    background: #111118; border: 1px solid rgba(255,255,255,0.10); border-radius: 20px;
+    padding: 28px 32px 24px; max-width: 700px; width: 100%;
     box-shadow: 0 -4px 40px rgba(0,0,0,0.6);
     animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
-  @keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
-  }
+  @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .ss-banner-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-  .ss-logo-mark {
-    width: 38px; height: 38px; border-radius: 10px;
-    background: linear-gradient(135deg, #7c6af5 0%, #c26af5 100%);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+  .ss-logo-mark { width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #7c6af5 0%, #c26af5 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .ss-logo-mark svg { width: 22px; height: 22px; }
   .ss-banner-title { font-size: 17px; font-weight: 600; color: #f0ecff; letter-spacing: -0.01em; }
   .ss-banner-subtitle { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 2px; }
@@ -289,40 +138,136 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">SixSeven</div>
 </header>
+<div class="container">
 
-<main>
-  <span class="eyebrow">A new way to connect</span>
+  <h1>Community Guidelines</h1>
+  <p class="meta">Last updated: September 2026</p>
 
-  <h1>Dating &amp; friendship,<br><em>differently.</em></h1>
-
-  <p class="description">
-    SixSeven is a mobile app for meeting people — whether you're looking for a relationship, a friendship, or simply a genuine connection.
-  </p>
-
-  <div class="coming-soon">
-    <span class="coming-soon-dot"></span>
-    <span><strong>Coming soon</strong> on iOS &amp; Android</span>
+  <div class="intro">
+    SixSeven is a place to meet people for dating and friendship. Everyone on the platform deserves to feel safe, respected, and treated honestly. These guidelines exist to protect that experience for everyone. They apply to all users, all content, and all interactions on SixSeven — including profiles, photos, and private messages.
   </div>
 
-  <div class="divider"></div>
-</main>
+  <h2>1. Be respectful</h2>
+  <p>Treat other users the way you would want to be treated. The following are not allowed on SixSeven:</p>
+  <ul>
+    <li>Harassment, bullying, or intimidation of any kind</li>
+    <li>Threats — direct or implied — against any person</li>
+    <li>Stalking or following someone across platforms after being asked to stop</li>
+    <li>Repeated unwanted contact after a person has made clear they are not interested</li>
+  </ul>
+  <p>Disagreements happen, but personal attacks, abuse, and hostility have no place here.</p>
 
-<footer>
-  <nav class="footer-links" aria-label="Footer">
-    <a href="privacy_policy.html">Privacy Policy</a>
-    <span class="footer-sep">·</span>
-    <a href="terms_of_service.html">Terms of Service</a>
-    <span class="footer-sep">·</span>
-    <a href="community_guidelines.html">Community Guidelines</a>
-    <span class="footer-sep">·</span>
-    <a href="support.html">Support</a>
-  </nav>
-  <p class="footer-copy">&copy; 2026 SixSeven</p>
-</footer>
+  <h2>2. Hate and discrimination</h2>
+  <p>SixSeven does not tolerate content or behaviour that demeans, degrades, or threatens people based on protected characteristics such as race, ethnicity, national origin, religion, gender, gender identity, sexual orientation, disability, age, or socioeconomic status.</p>
+  <ul>
+    <li>Hate speech, slurs, and discriminatory language are prohibited</li>
+    <li>Content that promotes or glorifies hatred toward any group is prohibited</li>
+    <li>Dehumanising language about any person or group is prohibited</li>
+  </ul>
+
+  <h2>3. Sexual content and conduct</h2>
+  <p>SixSeven is a platform for genuine connection. Sexual expression is a normal part of human interaction, but there are clear limits:</p>
+  <ul>
+    <li>Sexually explicit images or videos are not permitted in profiles or profile photos</li>
+    <li>Sending unsolicited sexual content or graphic messages to other users is not allowed</li>
+    <li>Sexual harassment — including persistent unwanted sexual advances or commentary — is prohibited</li>
+    <li>Sharing, threatening to share, or requesting non-consensual intimate images is strictly prohibited and may be reported to law enforcement</li>
+  </ul>
+
+  <h2>4. Adults only</h2>
+  <p>SixSeven is strictly for users aged 18 and older. We use identity verification to help enforce this.</p>
+  <ul>
+    <li>Do not create a profile that misrepresents your age, particularly by pretending to be a minor</li>
+    <li>Any content that sexualises, exploits, or endangers minors is strictly prohibited and will be reported to the relevant authorities without notice</li>
+    <li>If you encounter any content involving minors, report it immediately using the in-app reporting tool</li>
+  </ul>
+
+  <h2>5. Be yourself</h2>
+  <p>Honesty is the foundation of meaningful connection. You must represent yourself accurately on SixSeven.</p>
+  <ul>
+    <li>Do not impersonate another real person — whether a private individual, a public figure, or a SixSeven employee</li>
+    <li>Do not create an intentionally deceptive profile, including using someone else's photos or fabricating your identity</li>
+    <li>Catfishing — building a relationship under a false identity — is a serious violation of these guidelines</li>
+    <li>Do not provide materially false information about who you are, where you live, your age, or your relationship status</li>
+  </ul>
+  <p>SixSeven offers optional identity verification, which confirms that a user has completed a verification process. It does not guarantee another user's intentions, honesty, or safety. Always use your own judgement when getting to know someone new.</p>
+
+  <h2>6. Scams, spam, and commercial solicitation</h2>
+  <p>SixSeven is for meeting people, not for running businesses or deceiving them.</p>
+  <ul>
+    <li>Do not attempt to scam, defraud, or manipulate other users — including asking for money, gifts, financial information, or login credentials under false pretences</li>
+    <li>Phishing links and fraudulent websites are strictly prohibited</li>
+    <li>Do not send unsolicited bulk or repetitive messages (spam) to multiple users</li>
+    <li>Do not use SixSeven primarily to advertise or sell products, services, or opportunities</li>
+    <li>Romantic scams — building a false emotional connection in order to extract money — are a serious violation and may be reported to authorities</li>
+  </ul>
+
+  <h2>7. Violence and illegal activity</h2>
+  <p>SixSeven must not be used to facilitate harm or illegal activity.</p>
+  <ul>
+    <li>Do not make credible threats of violence against any person or group</li>
+    <li>Do not promote, glorify, or celebrate violence or violent acts</li>
+    <li>Do not use SixSeven to facilitate human trafficking, exploitation, or abuse</li>
+    <li>Do not use the platform to arrange, coordinate, or carry out any illegal activity</li>
+  </ul>
+
+  <h2>8. Privacy</h2>
+  <p>Respect the privacy of others.</p>
+  <ul>
+    <li>Do not share another person's private information — including contact details, location, financial information, or any sensitive personal data — without their clear permission</li>
+    <li>Do not publish, forward, or distribute private conversations without the other person's consent</li>
+    <li>Do not share, or threaten to share, intimate or private images of another person without their consent</li>
+  </ul>
+
+  <h2>9. Photos and profile content</h2>
+  <p>Your profile is your introduction to the SixSeven community. It should be honest, appropriate, and respectful.</p>
+  <ul>
+    <li>Only upload photos and content that you have the right to use</li>
+    <li>Profile photos must clearly show your face and must not mislead other users about your appearance</li>
+    <li>Do not upload sexually explicit, violent, abusive, or otherwise inappropriate content</li>
+    <li>Do not use profile content to harass, intimidate, or demean others</li>
+  </ul>
+
+  <h2>10. Reporting and blocking</h2>
+  <p>Your safety matters to us. SixSeven provides built-in tools to help you manage your experience:</p>
+  <ul>
+    <li><strong>Report</strong> — you can report any user or message that you believe violates these guidelines by using the report function on their profile or within the chat</li>
+    <li><strong>Block</strong> — you can block any user at any time. Once blocked, they will no longer be able to see your profile or contact you</li>
+  </ul>
+  <p>We encourage you to use these tools whenever you feel uncomfortable or unsafe. Every report helps us maintain the quality of the community.</p>
+
+  <h2>11. Enforcement</h2>
+  <p>We take these guidelines seriously. When a report is submitted or a violation is detected, SixSeven may:</p>
+  <ul>
+    <li>Review the reported content or account</li>
+    <li>Remove content that violates these guidelines</li>
+    <li>Restrict or limit an account's functionality</li>
+    <li>Temporarily suspend an account</li>
+    <li>Permanently remove an account</li>
+    <li>Report conduct to law enforcement where required by law or where we believe there is a risk of serious harm</li>
+  </ul>
+  <p>We do not guarantee that every report will result in a specific action, and enforcement decisions are made at SixSeven's discretion based on the circumstances of each case.</p>
+
+  <h2>12. Safety when meeting in person</h2>
+  <p>If you decide to meet someone you've connected with on SixSeven, please take sensible precautions. Here are some simple steps that can make a real difference:</p>
+  <ul>
+    <li><strong>Meet in public.</strong> Choose a busy, well-lit public place for a first meeting — not a private home or an isolated location</li>
+    <li><strong>Tell someone.</strong> Let a friend or family member know where you're going, who you're meeting, and when you expect to be back</li>
+    <li><strong>Arrange your own transport.</strong> Get to and from the meeting independently so you are not reliant on the other person</li>
+    <li><strong>Stay sober.</strong> Keep your wits about you, especially when meeting someone for the first time</li>
+    <li><strong>Never send money.</strong> Do not send money, gift cards, or financial information to someone you have met through SixSeven — regardless of the reason given</li>
+    <li><strong>Trust your instincts.</strong> If something feels wrong, it is always okay to leave</li>
+  </ul>
+  <p>SixSeven does not conduct background checks on users. Identity verification confirms a user's identity, not their intentions or past behaviour. Your safety ultimately depends on your own judgement.</p>
+
+  <h2>13. Contact</h2>
+  <p>If you have questions about these guidelines, or if you need to report a safety concern that cannot be addressed through the in-app tools, please contact us:</p>
+  <p>Email: <a href="mailto:support@sixsevenmeet.com">support@sixsevenmeet.com</a></p>
+
+</div>
 
 <!-- ── Cookie overlay ── -->
 <div id="ss-cookie-overlay" role="dialog" aria-modal="true" aria-label="Cookieinställningar">
@@ -379,7 +324,6 @@
     </div>
   </div>
 </div>
-
 <div id="ss-cookie-fab" onclick="reopenBanner()" title="Cookieinställningar" role="button" tabindex="0" aria-label="Öppna cookieinställningar">🍪</div>
 <div id="ss-toast"></div>
 
